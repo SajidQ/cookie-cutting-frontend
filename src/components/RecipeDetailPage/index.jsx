@@ -35,6 +35,7 @@ const recipe = {
 				ingredients: [
 					{
 
+
 					}
 				], 
 				steps: [
@@ -46,12 +47,12 @@ const recipe = {
 						type: 'video'
 					}
 				],
-				notes: "asdfas asdfasdfa asdfad"
+						notes: "asdfas asdfasdfa asdfad"
 			}
 		]
 	}
 
-class RecipeDetailPage extends Component<{}>{
+class RecipeDetailPage extends Component <{}> {
 	render(){
 		return <Fragment>
 		<h1>{recipe.name}</h1>
