@@ -1,79 +1,79 @@
 import _ from 'lodash'
-import React, {Component, Fragment } from 'react'
+import React, { PureComponent } from 'react'
+
+import Ingredients from '../Ingredients'
+
 import Box from '../../core/Box'
 
 const recipe = {
-		name: 'Paratha Roll',
-		image: 'https://thecookbook.pk/wp-content/uploads/2018/10/rolls.jpg',
-		version : [
-			{
-				id: 1, 
-				name: 'attemp 1',
-				fav: true, 
-				ingredients: [
-					{
-						qty: 2, 
-						type: 'oz',
-						material: 'asdfasd'
-					}
-				], 
-				steps: [
+  name: 'Paratha Roll',
+  image:
+    'https://thecookbook.pk/wp-content/uploads/2018/10/rolls.jpg',
+  versions: [
+    {
+      id: 1,
+      name: 'V1 - best',
+      fav: true,
+      ingredients: [
+        {
+          qty: 2,
+          type: 'oz',
+          name: 'Cinnamon',
+        },
+        {
+          qty: 2,
+          type: 'tbs',
+          name: 'Ginger',
+        },
+      ],
+      steps: [],
+      media: [
+        {
+          url: 'https://www.youtube.com/watch?v=gDUaZVS1u40',
+          type: 'video',
+        },
+      ],
+      notes: 'asdfas asdfasdfa asdfad',
+    },
+    {
+      id: 2,
+      name: 'attempt 2',
+      fav: true,
+      ingredients: [{}],
+      steps: [],
+      media: [
+        {
+          url: 'https://www.youtube.com/watch?v=gDUaZVS1u40',
+          type: 'video',
+        },
+      ],
+      notes: 'asdfas asdfasdfa asdfad',
+    },
+  ],
+}
 
-				],
-				media: [
-					{
-						url: 'https://www.youtube.com/watch?v=gDUaZVS1u40',
-						type: 'video'
-					}
-				],
-				notes: "asdfas asdfasdfa asdfad"
-			},
-			{
-				id: 2, 
-				name: 'attemp 2',
-				fav: true, 
-				ingredients: [
-					{
+class RecipeDetailPage extends PureComponent<{}> {
+  render() {
+    return (
+      <>
+        <h1>{recipe.name}</h1>
+        <h2>Version</h2>
+        <Box direction="row">
+          <Box direction="col">
+            <Ingredients recipe={recipe} selectedVersion={1} />
+          </Box>
 
-
-					}
-				], 
-				steps: [
-
-				],
-				media: [
-					{
-						url: 'https://www.youtube.com/watch?v=gDUaZVS1u40',
-						type: 'video'
-					}
-				],
-						notes: "asdfas asdfasdfa asdfad"
-			}
-		]
-	}
-
-class RecipeDetailPage extends Component <{}> {
-	render(){
-		return <Fragment>
-		<h1>{recipe.name}</h1>
-		<h2>Version</h2>
-		<Box direction="row" width="300px">
-			<Box direction="row">
-				<Box direction="col">
-					
-					<Box>
-						<h3>Ingredients</h3>
-					</Box>
-				</Box>
-				<Box>Media</Box>
-			</Box>
-			<Box>
-				{_.map(recipe.version, 'name')}
-			</Box>
-		</Box>
-
-		</Fragment>
-	}
+          <Box width="300px">Media</Box>
+          <Box direction="col" width="300px">
+            Versions
+            {_.map(recipe.versions, version => {
+              return <span>{version.name}</span>
+            })}
+          </Box>
+        </Box>
+      </>
+    )
+  }
 }
 
 export default RecipeDetailPage

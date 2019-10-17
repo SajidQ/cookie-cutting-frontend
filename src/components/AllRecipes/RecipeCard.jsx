@@ -8,7 +8,7 @@ class RecipeCard extends Component<{recipe:*}>{
 	render(){
 		return (<div onClick={()=>{
 			console.log(this.props)
-			return this.props.history.push('/recipe/3')}}><Card
+			return this.props.history.push(`/recipe/${this.props.recipe.id}`)}}><Card
 			style={{width:'300px'}}
 			
     cover={

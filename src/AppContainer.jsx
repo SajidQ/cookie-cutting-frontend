@@ -10,7 +10,7 @@ class AppContainer extends Component {
 	render (){
 		return (<Switch>
 			
-			<Route path="/recipe/:id" component={RecipeDetailPage} />
+				<Route path="/recipe/:id" component={RecipeDetailPage} />
 			<Route path="/add-recipe" component={AddReciepePage} />
 			<Route path="/" component={AllRecipes} />
 		</Switch>)
